@@ -22,3 +22,12 @@ jobs:
 
       - name: Check Bats Version
         run: bats -v
+
+  list-src-folder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+
+      - run: ls src/
