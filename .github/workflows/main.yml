@@ -1,28 +1,10 @@
-name: Log Bats Version
+name: Main Actions Playbox
 
 on:
   push:
     branches: [main]
 
 jobs:
-  log-bats-version:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3.1.1
-        with:
-          node-version: '14'
-
-      - name: Install Bats
-        run: npm install -g bats
-
-      - name: Check Bats Version
-        run: bats -v
-
   run-nested-npm-script:
     runs-on: ubuntu-latest
 
@@ -30,4 +12,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.2
 
-      - run: cd src/ && npm run list-folder
+      - run: |
+          cd src/
+          npm run list-folder
