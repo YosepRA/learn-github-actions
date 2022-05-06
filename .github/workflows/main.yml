@@ -30,5 +30,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.2
 
-      - run: cd src/
-      - run: npm run list-folder
+      - run: cd src/ && npm run list-folder
