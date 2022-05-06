@@ -15,7 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3.1.1
         with:
-          node-version: '16'
+          node-version: '14'
 
       - name: Install Bats
         run: npm install -g bats
@@ -23,11 +23,12 @@ jobs:
       - name: Check Bats Version
         run: bats -v
 
-  list-src-folder:
+  run-nested-npm-script:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.2
 
-      - run: ls src/
+      - run: cd src/
+      - run: npm run list-folder
