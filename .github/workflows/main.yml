@@ -34,6 +34,9 @@ jobs:
     needs: [create-new-file]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: List src folder
         run: |
           cd src/
