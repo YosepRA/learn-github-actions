@@ -5,13 +5,35 @@ on:
     branches: [main]
 
 jobs:
-  run-nested-npm-script:
+  # run-nested-npm-script:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2.4.2
+
+  #     - name: Enter src and run list-folder
+  #       run: |
+  #         cd src/
+  #         npm run list-folder
+
+  create-new-file:
+    name: Create new file in src
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.2
+        uses: actions/checkout@v3
 
-      - run: |
+      - name: Create file
+        run: touch src/dependent.js
+
+  list-src:
+    name: List src folder using npm script
+    needs: [create-new-file]
+
+    steps:
+      - name: List src folder
+        run: |
           cd src/
           npm run list-folder
